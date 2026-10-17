@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 const booking_schema=mongoose.Schema(
     {
         user:{
-            type:String,
+            id:mongoose.Schema.Types.ObjectId,
+            ref:'Event',
             required:true
         },
 

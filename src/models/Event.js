@@ -12,7 +12,7 @@ const event_schema=new mongoose.Schema(
             required:true
         },
 
-        locatoin:{
+        location:{
             type:String,
             required:true
         },
