@@ -9,7 +9,7 @@ const startserver= async ()=>{
     await db()
     app.listen(process.env.PORT,()=>{
         console.log('start the server...')
-        console.log(process.env.PORT)
+        console.log("Port:"+process.env.PORT)
     })
     }
     catch{

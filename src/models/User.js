@@ -49,5 +49,5 @@ const user_schema=mongoose.Schema(
         timestamps:true
     }
 )
-const user=mongoose.model('user',user_schema)
-export default user;
+const User=mongoose.model('User',user_schema)
+export default User;
