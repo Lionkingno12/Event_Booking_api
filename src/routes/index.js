@@ -4,6 +4,7 @@ const router=express.Router()
 
 //router  used
 router.use(health_router)
+router.use(event_book)
 
 //importing router 
 export const index_router=router;

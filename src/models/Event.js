@@ -24,16 +24,20 @@ const event_schema=new mongoose.Schema(
 
         totalSeats:{
             type:Number,
-            required:true
+            required:true,
+            min:1
         },
 
-        seatLeft:{
+        seatsLeft:{
             type:Number,
-            required:true
+            required:true,
+            min:0
         },
 
         organizer:{
-            type:String
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"User",
+            required:true
         }
 
 

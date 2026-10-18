@@ -3,25 +3,31 @@ import mongoose from "mongoose";
 const booking_schema=mongoose.Schema(
     {
         user:{
-            id:mongoose.Schema.Types.ObjectId,
-            ref:'Event',
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'User',
             required:true
         },
 
         event:{
-            type:String,
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Event',
             required:true
         },
 
         seats:{
             type:Number,
-            required:true
+            required:true,
+            min:1
         },
 
         status:{
-            type:Boolean,
-            required:true
+            type:String,
+            enum:['booked','cancelled'],
+            default:'booked'
         }
+    },
+    {
+        timestamps:true
     }
 )
 const book=mongoose.model('Book',booking_schema)
