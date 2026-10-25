@@ -2,7 +2,7 @@ import express from 'express'
 const router=express.Router()
 import User from '../models/User.js';
 router.get('/auth',(req,res)=>{
-    router.send('auth succeeded')
+    res.send('auth succeeded')
 })
 router.post('/auth/register',async (req,res)=>{
     try{
@@ -10,14 +10,14 @@ router.post('/auth/register',async (req,res)=>{
         const user= await User.create({
             name,email,password
         }) 
-        res.send(202).json({
+        res.status(202).json({
             message:'Registored successfully',
             name,
             email
         })
 
     }catch(error){
-        res.send(404).json(
+        res.status(404).json(
             {message:'Not able to Registor'}
         )
     }
