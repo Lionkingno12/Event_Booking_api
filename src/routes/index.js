@@ -4,7 +4,7 @@ import {auth_router} from './authRoutes.js'
 const router=express.Router()
 
 //router  used
-router.use(health_router)
-router.use(auth_router)
+router.use('/health',health_router)
+router.use('/auth',auth_router)
 //importing router 
 export const index_router=router;
