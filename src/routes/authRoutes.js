@@ -63,14 +63,18 @@ router.post('/auth/login',async (req,res)=>{
 
         })
     }catch(error){
-
+        res.status(404).json({
+            message:'you have done something wrong'
+        })
     }
 })
 router.get('/auth/me',async (req,res)=>{
     try{
 
     }catch(error){
-
+        res.status(404).json({
+            message:'you have done something wrong'
+        })
     }
 })
 export const auth_router=router;
