@@ -54,14 +54,14 @@ export const login_user=async (req,res)=>{
                 message:'user password is not correct '
             })
         }
-        const token=generateToken(user._id)
+        const token= await generateToken(user._id)
         res.status(202).json({
             message:'login successfully',
             user:{
                 name:user.name,
                 email:user.email,
-                token:token
-            }
+            },
+            token:token
 
         })
     }catch(error){

@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 
 //jwt
 export const generateToken=async (userId)=>{
-    return jwt.sign(
+    return await jwt.sign(
         {id:userId},
         process.env.JWT_SECRET,
         {
