@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt'
 import User from '../models/User.js'
+import { generateToken } from '../utils/generateToken.js';
 
 //Registor User
 export const registor_user=async (req,res)=>{
@@ -30,7 +31,7 @@ export const registor_user=async (req,res)=>{
 
     }catch(error){
         res.status(500).json(
-            {message:'Not able to Registor'}
+            {message:'Not able to Registor you have done something wrong'}
         )
     }
 }
@@ -53,11 +54,13 @@ export const login_user=async (req,res)=>{
                 message:'user password is not correct '
             })
         }
+        const token=generateToken(user._id)
         res.status(202).json({
             message:'login successfully',
             user:{
                 name:user.name,
-                email:user.email
+                email:user.email,
+                token:token
             }
 
         })
