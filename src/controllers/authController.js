@@ -74,7 +74,11 @@ export const login_user=async (req,res)=>{
 //Me
 export const me_user=async (req,res)=>{
     try{
-
+        console.log('me,controller',req.user)
+        res.status(202).json({
+            message:'user have logined ',
+            user:req.user
+        })
     }catch(error){
         res.status(404).json({
             message:'you have done something wrong'
